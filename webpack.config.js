@@ -3,13 +3,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	context: path.resolve('./app'),
 	entry: './js/index.js',
 	output: {
 		path: path.resolve('./dist/'),
-		filename: 'js/bundle.js'
+		filename: 'js/bundle.js',
+		publicPath: '/'
 	},
 	module: {
 		devtool: 'source-map',
@@ -30,8 +32,11 @@ module.exports = {
 			test: /\.css$/,
 			loaders: ["style", "css"]
 		},{
-			test: /\.(eot|svg|ttf|woff|woff2)$/,
-			loader: 'file?name=fonts/[name].[ext]'
+			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: "url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]"
+		},{
+			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: "file?name=fonts/[name].[ext]"
 		},{
 			test: /\.(jpe?g|png|gif)$/,
   		loader:'file?name=img/[name].[ext]'
@@ -52,6 +57,18 @@ module.exports = {
 			},
 			port: 3000,
 			host: 'localhost'
-		})
+		}),
+		new CopyWebpackPlugin([{
+			from: './manifest.json'
+		},{
+			from: './manifest.webapp'
+		},{
+			from: './robots.txt'
+		},{
+			from: './favicon.ico'
+		},{
+			from: './img/**/*',
+			to: './'
+		}])
 	]
 }

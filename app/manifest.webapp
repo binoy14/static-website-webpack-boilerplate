@@ -1,0 +1,25 @@
+{
+	"version": "1.0.0",
+	"name": "Static Website Boilerplate",
+	"launch_path": "/index.html",
+	"description": "Static website boilerplate using webpack and bootstrap",
+	"icons": {
+		"128": "/img/icon-128x128.png"
+	},
+	"developer": {
+		"name": "Binoy Patel",
+		"url": "https://github.com/binoy14"
+	},
+	"installs_allowed_from": [
+		"*"
+	],
+	"default_locale": "en",
+	"permissions": {
+	},
+	"locales": {
+		"en": {
+			"name": "Static Website Boilerplate",
+			"description": "Static website boilerplate using webpack and bootstrap"
+		}
+	}
+}

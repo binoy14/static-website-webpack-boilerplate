@@ -1,15 +1,16 @@
 {
-  "name": "static-website-webpack-generator",
+  "name": "static-website-webpack-boilerplate",
   "version": "0.0.1",
-  "description": "Static website generator using webpack and bootstrap ",
+  "description": "Static website boilerplate using webpack and bootstrap",
   "main": "bundle.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base dist --progress --colors",
+    "start": "webpack --watch",
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "webpack",
-    "generator",
+    "boilerplate",
     "static",
     "website"
   ],
@@ -22,6 +23,7 @@
     "browser-sync": "^2.14.0",
     "browser-sync-webpack-plugin": "^1.1.2",
     "clean-webpack-plugin": "^0.1.10",
+    "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
@@ -34,6 +36,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
     "jquery": "^3.1.0"
   }
 }
