@@ -56,7 +56,8 @@ module.exports = {
 				baseDir: ['dist']
 			},
 			port: 3000,
-			host: 'localhost'
+			host: 'localhost',
+			open: false
 		}),
 		new CopyWebpackPlugin([{
 			from: './manifest.json'
